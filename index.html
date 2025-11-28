@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarkFlow - The Future of Markdown</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <style type="text/tailwindcss" data-teda="tailwind-apply">
+        @layer components {
+            .btn-cta { @apply px-8 py-4 bg-teal-600 text-white font-bold rounded-full shadow-lg hover:bg-teal-700 hover:shadow-teal-500/30 transform hover:-translate-y-1 transition-all duration-300; }
+            .feature-text { @apply text-lg text-slate-600 leading-relaxed; }
+        }
+    </style>
+</head>
+<body class="bg-white selection:bg-teal-100 selection:text-teal-900">
+    
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="logo.svg" class="w-10 h-10 shadow-sm rounded-lg" alt="MarkFlow Logo">
+                <span class="font-extrabold text-2xl tracking-tighter text-slate-800">MarkFlow</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#features" class="font-medium text-slate-500 hover:text-teal-600 transition-colors">Features</a>
+                <a href="#privacy" class="font-medium text-slate-500 hover:text-teal-600 transition-colors">Privacy</a>
+                <a href="app.html" class="px-5 py-2.5 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-all shadow-md hover:shadow-lg">
+                    Launch App
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-teal-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-indigo-50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="max-w-4xl">
+                <h1 class="text-6xl lg:text-8xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-8 animate-fade-in">
+                    Writing,
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-600">Refined.</span>
+                </h1>
+                <p class="text-xl lg:text-2xl text-slate-500 mb-10 max-w-2xl leading-relaxed animate-slide-up delay-100">
+                    A beautiful, distraction-free Markdown editor running entirely in your browser. No sign-ups. No servers. Just flow.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 animate-slide-up delay-200">
+                    <a href="app.html" class="btn-cta text-center">
+                        Start Writing Now <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#demo" class="px-8 py-4 bg-white border border-slate-200 text-slate-700 font-bold rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
+                        See How It Works
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Creative Feature Stream (No Grids) -->
+    <main class="relative">
+        
+        <!-- Feature 1: Asymmetric Layout -->
+        <section id="features" class="py-24 lg:py-32 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 relative z-10">
+                        <div class="bg-white rounded-2xl shadow-2xl p-6 border border-slate-100 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                            <div class="flex gap-2 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                            </div>
+                            <div class="space-y-3 font-mono text-sm text-slate-600">
+                                <div class="flex"><span class="text-teal-600 w-8">1</span> <span># The Creative Process</span></div>
+                                <div class="flex"><span class="text-teal-600 w-8">2</span> <span></span></div>
+                                <div class="flex"><span class="text-teal-600 w-8">3</span> <span>Markdown allows you to write **boldly**.</span></div>
+                                <div class="flex"><span class="text-teal-600 w-8">4</span> <span>> Focus on content, not style.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h2 class="text-4xl font-bold text-slate-900 mb-6">Live Preview as you type.</h2>
+                        <p class="feature-text mb-8">
+                            Experience a split-screen interface that renders your Markdown instantly. We use the same rendering engine as GitHub, ensuring your READMEs and documents look exactly as intended.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-slate-700">
+                                <i class="fa-solid fa-check text-teal-500"></i> Syntax Highlighting
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-700">
+                                <i class="fa-solid fa-check text-teal-500"></i> GFM Support (Tables, Tasks)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature 2: Reverse Layout -->
+        <section id="privacy" class="py-24 bg-slate-50 clip-path-slant">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                    <div class="lg:w-5/12">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-indigo-500 rounded-2xl rotate-3 opacity-10"></div>
+                            <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 relative">
+                                <i class="fa-solid fa-microchip text-4xl text-indigo-500 mb-4"></i>
+                                <h3 class="text-xl font-bold text-slate-900 mb-2">Local AI Engine</h3>
+                                <p class="text-slate-500">Processing happens 100% on your device via WebGPU.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-7/12">
+                        <h2 class="text-4xl font-bold text-slate-900 mb-6">AI that respects your privacy.</h2>
+                        <p class="feature-text">
+                            We've integrated WebLLM to provide smart summarization and grammar checking directly in your browser. Your data never leaves your computer. No API keys, no monthly fees, no tracking.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-32 relative overflow-hidden">
+             <div class="absolute inset-0 bg-slate-900"></div>
+             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+             <div class="relative z-10 max-w-4xl mx-auto text-center px-6">
+                 <h2 class="text-5xl font-extrabold text-white mb-8 tracking-tight">Ready to flow?</h2>
+                 <p class="text-xl text-slate-300 mb-12">
+                     Join the new era of buildless, local-first web applications. 
+                 </p>
+                 <a href="app.html" class="inline-block px-10 py-5 bg-teal-500 hover:bg-teal-400 text-slate-900 font-bold text-lg rounded-2xl shadow-[0_0_20px_rgba(20,184,166,0.5)] hover:shadow-[0_0_40px_rgba(20,184,166,0.6)] transition-all transform hover:scale-105">
+                     Open MarkFlow Editor
+                 </a>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 py-12 text-center text-slate-500 text-sm">
+        <p class="mb-2">&copy; 2023 MarkFlow. All rights reserved.</p>
+        <p>Built by <a href="https://teda.dev" class="text-slate-400 hover:text-white transition-colors underline decoration-slate-700">Teda.dev</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</body>
+</html>
