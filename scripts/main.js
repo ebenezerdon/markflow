@@ -33,6 +33,38 @@ $(function() {
     Storage.set('markflow_title', $(this).val());
   });
 
+  // Scroll Sync Logic
+  let isSyncingLeft = false;
+  let isSyncingRight = false;
+  const $editor = $('#editor');
+  const $preview = $('#preview');
+
+  $editor.on('scroll', function() {
+    if (!ui.state.isScrollSync || isSyncingLeft) {
+      isSyncingLeft = false;
+      return;
+    }
+    isSyncingRight = true;
+    const percentage = this.scrollTop / (this.scrollHeight - this.offsetHeight);
+    const previewEl = $preview[0];
+    previewEl.scrollTop = percentage * (previewEl.scrollHeight - previewEl.offsetHeight);
+  });
+
+  $preview.on('scroll', function() {
+    if (!ui.state.isScrollSync || isSyncingRight) {
+      isSyncingRight = false;
+      return;
+    }
+    isSyncingLeft = true;
+    const percentage = this.scrollTop / (this.scrollHeight - this.offsetHeight);
+    const editorEl = $editor[0];
+    editorEl.scrollTop = percentage * (editorEl.scrollHeight - editorEl.offsetHeight);
+  });
+
+  $('#btn-sync-scroll').on('click', function() {
+    ui.toggleScrollSync();
+  });
+
   // Toolbar Actions
   $('.toolbar-btn').on('click', function() {
     const format = $(this).data('format');

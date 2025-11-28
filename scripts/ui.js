@@ -7,7 +7,8 @@ window.App = window.App || {};
       content: '',
       isAiOpen: false,
       isAiLoading: false,
-      aiResponse: ''
+      aiResponse: '',
+      isScrollSync: true
     },
 
     // Render the main app structure
@@ -32,6 +33,10 @@ window.App = window.App || {};
               <button id="btn-ai-toggle" class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all shadow-sm border bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100">
                 <i class="fa-solid fa-sparkles"></i>
                 <span>AI Assist</span>
+              </button>
+              <button id="btn-sync-scroll" class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all shadow-sm border bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100" title="Toggle Scroll Sync">
+                <i class="fa-solid fa-link"></i>
+                <span>Sync Scroll</span>
               </button>
               <div class="h-6 w-px bg-slate-200 mx-2"></div>
               <button id="btn-copy-html" class="p-2 text-slate-500 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors" title="Copy HTML">
@@ -176,6 +181,21 @@ window.App = window.App || {};
         $text.text('AI Ready. Model loaded locally.');
         $indicator.removeClass('bg-amber-400 animate-pulse').addClass('bg-emerald-500');
         $actions.removeClass('opacity-50 pointer-events-none');
+      }
+    },
+    toggleScrollSync() {
+      this.state.isScrollSync = !this.state.isScrollSync;
+      const $btn = $('#btn-sync-scroll');
+      
+      const activeClass = 'bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100';
+      const inactiveClass = 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50';
+
+      if (this.state.isScrollSync) {
+        $btn.removeClass(inactiveClass).addClass(activeClass);
+        this.showToast('Scroll sync enabled');
+      } else {
+        $btn.removeClass(activeClass).addClass(inactiveClass);
+        this.showToast('Scroll sync disabled');
       }
     },
     showToast(message, type = 'info') {
