@@ -34,9 +34,8 @@ window.App = window.App || {};
                 <i class="fa-solid fa-sparkles"></i>
                 <span>AI Assist</span>
               </button>
-              <button id="btn-sync-scroll" class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-all shadow-sm border bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100" title="Toggle Scroll Sync">
+              <button id="btn-sync-scroll" class="p-2 text-teal-600 bg-teal-50 rounded-lg transition-colors" title="Toggle Scroll Sync">
                 <i class="fa-solid fa-link"></i>
-                <span>Sync Scroll</span>
               </button>
               <div class="h-6 w-px bg-slate-200 mx-2"></div>
               <button id="btn-copy-html" class="p-2 text-slate-500 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors" title="Copy HTML">
@@ -183,18 +182,15 @@ window.App = window.App || {};
         $actions.removeClass('opacity-50 pointer-events-none');
       }
     },
+
     toggleScrollSync() {
       this.state.isScrollSync = !this.state.isScrollSync;
       const $btn = $('#btn-sync-scroll');
-      
-      const activeClass = 'bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100';
-      const inactiveClass = 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50';
-
       if (this.state.isScrollSync) {
-        $btn.removeClass(inactiveClass).addClass(activeClass);
+        $btn.removeClass('text-slate-400').addClass('text-teal-600 bg-teal-50');
         this.showToast('Scroll sync enabled');
       } else {
-        $btn.removeClass(activeClass).addClass(inactiveClass);
+        $btn.removeClass('text-teal-600 bg-teal-50').addClass('text-slate-400');
         this.showToast('Scroll sync disabled');
       }
     },
